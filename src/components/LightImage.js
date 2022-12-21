@@ -5,7 +5,7 @@ const LightImage = ({light, clickHandler}) => {
 
   return (
     <div>
-      <img class="light" src={imageSource} alt={imageAlt} onClick={clickHandler}></img>
+      <img className="light" src={imageSource} alt={imageAlt} onClick={clickHandler}></img>
     </div>
   )
 }

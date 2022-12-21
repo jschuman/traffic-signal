@@ -3,11 +3,11 @@ import LightImage from './LightImage';
 
 const TrafficSignal = () => {
   let [currentLight, setCurrentLight] = useState("Red");
-  let [lightStats, setLightStats] = useState({
-    "Red": 0,
-    "Green": 0,
-    "Yellow": 0
-  })
+  let [lightStats, setLightStats] = useState([
+    {name: "Red", count: 0},
+    {name: "Yellow", count: 0},
+    {name: "Green", count: 0}
+  ])
 
   const cycle = {
     "Red": "Green",
@@ -29,37 +29,40 @@ const TrafficSignal = () => {
   }
 
   const updateStatsForLight = (light) => {
-    let updatedStats = { ...lightStats };
-    updatedStats[light] = lightStats[light] + 1;
+    let updatedStats = lightStats.map((lightStat) => {
+      if (lightStat.name === light) {
+        lightStat.count = lightStat.count + 1;
+      }
+      return lightStat;
+    });
     setLightStats(updatedStats);
   }
 
   const resetStats = () => {
-    setLightStats({
-      "Red": 0,
-      "Green": 0,
-      "Yellow": 0
+    let updatedStats = lightStats.map((lightStat) => {
+      lightStat.count = 0;
     });
+    setLightStats(updatedStats);
   }
 
   return (
     <div>
       <LightImage light={currentLight} clickHandler={nextLightCycle} />
       <hr />
-      <button class='action' onClick={() => forceLight("Red")}>Set Red</button>
-      <button class='action' onClick={() => forceLight("Yellow")}>Set Yellow</button>
-      <button class='action' onClick={() => forceLight("Red")}>Set Green</button>
+      <button className='action' onClick={() => forceLight("Red")}>Set Red</button>
+      <button className='action' onClick={() => forceLight("Yellow")}>Set Yellow</button>
+      <button className='action' onClick={() => forceLight("Red")}>Set Green</button>
       <hr />
       <div>
         <h3>Light Stats</h3>
       </div>
-      <div class='stat'>
+      <div className='stat'>
         <span>Red: </span><span>{lightStats["Red"]}</span>
       </div>
-      <div class='stat'>
+      <div className='stat'>
         <span>Yellow: </span><span>{lightStats["Yellow"]}</span>
       </div>
-      <div class='stat'>
+      <div className='stat'>
         <span>Green: </span><span>{lightStats["Green"]}</span>
       </div>
       <div>
