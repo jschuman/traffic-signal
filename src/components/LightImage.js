@@ -1,11 +1,11 @@
-const LightImage = ({light}) => {
+const LightImage = ({light, clickHandler}) => {
 
   const imageSource = `../${light}_traffic_signal.svg`
   const imageAlt = `${light} Traffic Signal`
 
   return (
     <div>
-      <img src={imageSource} alt={imageAlt}></img>
+      <img class="light" src={imageSource} alt={imageAlt} onClick={clickHandler}></img>
     </div>
   )
 }
