@@ -51,19 +51,17 @@ const TrafficSignal = () => {
       <button class='action' onClick={() => forceLight("Red")}>Set Green</button>
       <hr />
       <div>
-        <span>Light Stats</span>
+        <h3>Light Stats</h3>
       </div>
-      <div>
+      <div class='stat'>
         <span>Red: </span><span>{lightStats["Red"]}</span>
       </div>
-      <div>
+      <div class='stat'>
         <span>Yellow: </span><span>{lightStats["Yellow"]}</span>
       </div>
-      <nobr />
-      <div>
+      <div class='stat'>
         <span>Green: </span><span>{lightStats["Green"]}</span>
       </div>
-      <nobr />
       <div>
         <button onClick={() => resetStats()}>Reset Stats</button>
       </div>

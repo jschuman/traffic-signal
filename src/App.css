@@ -44,3 +44,7 @@ img.light {
 button.action {
   margin-right: 15px;
 }
+
+div.stat {
+  margin-bottom: 10px;
+}
