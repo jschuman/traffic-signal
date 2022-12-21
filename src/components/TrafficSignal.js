@@ -1,12 +1,8 @@
-const TrafficSignal = ({light}) => {
+import LightImage from './LightImage';
 
-  const imageSource = `../${light}_traffic_signal.svg`
-  const imageAlt = `${light} Traffic Signal`
-
+const TrafficSignal = () => {
   return (
-    <div>
-      <img src={imageSource} alt={imageAlt}></img>
-    </div>
+    <LightImage light="Green"/>
   )
 }
 

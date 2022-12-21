@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import './components/TrafficSignal';
+import './components/LightImage';
 import TrafficSignal from './components/TrafficSignal';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Traffic Signal Test</h1>
       </header>
-      <TrafficSignal light='Red' />
+      <TrafficSignal />
     </div>
   );
 }
