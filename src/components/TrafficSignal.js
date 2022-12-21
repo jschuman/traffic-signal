@@ -22,8 +22,10 @@ const TrafficSignal = () => {
   }
 
   const forceLight = (light) => {
-    setCurrentLight(light);
-    updateStatsForLight(light);
+    if (light !== currentLight) {
+      setCurrentLight(light);
+      updateStatsForLight(light);
+    }
   }
 
   const updateStatsForLight = (light) => {
@@ -32,13 +34,39 @@ const TrafficSignal = () => {
     setLightStats(updatedStats);
   }
 
+  const resetStats = () => {
+    setLightStats({
+      "Red": 0,
+      "Green": 0,
+      "Yellow": 0
+    });
+  }
+
   return (
     <div>
       <LightImage light={currentLight} clickHandler={nextLightCycle} />
       <hr />
-      <button class='action' onClick={() => forceLight("Red")}>Make Red</button>
-      <button class='action' onClick={() => forceLight("Red")}>Make Green</button>
-      <button class='action' onClick={() => forceLight("Yellow")}>Make Yellow</button>
+      <button class='action' onClick={() => forceLight("Red")}>Set Red</button>
+      <button class='action' onClick={() => forceLight("Yellow")}>Set Yellow</button>
+      <button class='action' onClick={() => forceLight("Red")}>Set Green</button>
+      <hr />
+      <div>
+        <span>Light Stats</span>
+      </div>
+      <div>
+        <span>Red: </span><span>{lightStats["Red"]}</span>
+      </div>
+      <div>
+        <span>Yellow: </span><span>{lightStats["Yellow"]}</span>
+      </div>
+      <nobr />
+      <div>
+        <span>Green: </span><span>{lightStats["Green"]}</span>
+      </div>
+      <nobr />
+      <div>
+        <button onClick={() => resetStats()}>Reset Stats</button>
+      </div>
     </div>
   )
 }
