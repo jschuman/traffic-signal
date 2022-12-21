@@ -18,10 +18,18 @@ const TrafficSignal = () => {
   const nextLightCycle = () => {
     let nextLight = cycle[currentLight];
     setCurrentLight(nextLight);
+    updateStatsForLight(nextLight);
   }
 
   const forceLight = (light) => {
     setCurrentLight(light);
+    updateStatsForLight(light);
+  }
+
+  const updateStatsForLight = (light) => {
+    let updatedStats = { ...lightStats };
+    updatedStats[light] = lightStats[light] + 1;
+    setLightStats(updatedStats);
   }
 
   return (
