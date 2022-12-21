@@ -37,6 +37,10 @@
   }
 }
 
-.light {
+img.light {
   cursor: pointer;
+}
+
+button.action {
+  margin-right: 15px;
 }

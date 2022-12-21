@@ -12,10 +12,20 @@ const TrafficSignal = () => {
 
   const nextLightCycle = () => {
     setCurrentLight(cycle[currentLight]);
-  } 
+  }
+
+  const forceLight = (light) => {
+    setCurrentLight(light);
+  }
 
   return (
-    <LightImage light={currentLight} clickHandler={nextLightCycle} />
+    <div>
+      <LightImage light={currentLight} clickHandler={nextLightCycle} />
+      <hr />
+      <button class='action' onClick={() => forceLight("Red")}>Make Red</button>
+      <button class='action' onClick={() => forceLight("Green")}>Make Green</button>
+      <button class='action' onClick={() => forceLight("Yellow")}>Make Yellow</button>
+    </div>
   )
 }
 
