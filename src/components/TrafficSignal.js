@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import LightImage from './LightImage';
+import LightStat from './LightStat';
 
 const TrafficSignal = () => {
   let [currentLight, setCurrentLight] = useState("Red");
@@ -40,7 +41,7 @@ const TrafficSignal = () => {
 
   const resetStats = () => {
     let updatedStats = lightStats.map((lightStat) => {
-      lightStat.count = 0;
+      return {...lightStat, count: 0};
     });
     setLightStats(updatedStats);
   }
@@ -58,9 +59,7 @@ const TrafficSignal = () => {
       </div>
       { lightStats.map((lightStat) => {
         return (
-          <div className='stat'>
-            <span>{lightStat.name}: </span><span>{lightStat.count}</span>
-          </div>
+          <LightStat key={lightStat.name} name={lightStat.name} count={lightStat.count} />
         )
       })}
       <div>
