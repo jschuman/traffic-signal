@@ -56,15 +56,13 @@ const TrafficSignal = () => {
       <div>
         <h3>Light Stats</h3>
       </div>
-      <div className='stat'>
-        <span>Red: </span><span>{lightStats["Red"]}</span>
-      </div>
-      <div className='stat'>
-        <span>Yellow: </span><span>{lightStats["Yellow"]}</span>
-      </div>
-      <div className='stat'>
-        <span>Green: </span><span>{lightStats["Green"]}</span>
-      </div>
+      { lightStats.map((lightStat) => {
+        return (
+          <div className='stat'>
+            <span>{lightStat.name}: </span><span>{lightStat.count}</span>
+          </div>
+        )
+      })}
       <div>
         <button onClick={() => resetStats()}>Reset Stats</button>
       </div>
