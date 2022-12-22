@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './components/LightImage';
 import TrafficSignal from './components/TrafficSignal';
