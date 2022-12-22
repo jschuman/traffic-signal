@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import LightImage from './LightImage';
-import LightStat from './LightStat';
 import ForceLightButton from './ForceLightButton';
+import StatsArea from './StatsArea';
 
 const TrafficSignal = () => {
   let [currentLight, setCurrentLight] = useState("Red");
@@ -55,17 +55,7 @@ const TrafficSignal = () => {
       <ForceLightButton caption="Set Yellow" onClick={() => forceLight("Yellow")} />
       <ForceLightButton caption="Set Green" onClick={() => forceLight("Red")} />
       <hr />
-      <div>
-        <h3>Light Stats</h3>
-      </div>
-      { lightStats.map((lightStat) => {
-        return (
-          <LightStat key={lightStat.name} name={lightStat.name} count={lightStat.count} />
-        )
-      })}
-      <div>
-        <button onClick={() => resetStats()}>Reset Stats</button>
-      </div>
+      <StatsArea lightStats={lightStats} resetHandler={resetStats} />
     </div>
   )
 }
