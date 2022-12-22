@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Traffic Signal Test
+
+Test a light signal by cycling through normal operation or forcing a specific light to be turned on.  Statistics are kept onhow many times each light is turned on and can be reset.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
