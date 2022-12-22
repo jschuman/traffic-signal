@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import LightImage from './LightImage';
 import LightStat from './LightStat';
+import ForceLightButton from './ForceLightButton';
 
 const TrafficSignal = () => {
   let [currentLight, setCurrentLight] = useState("Red");
@@ -50,9 +51,9 @@ const TrafficSignal = () => {
     <div>
       <LightImage light={currentLight} clickHandler={nextLightCycle} />
       <hr />
-      <button className='action' onClick={() => forceLight("Red")}>Set Red</button>
-      <button className='action' onClick={() => forceLight("Yellow")}>Set Yellow</button>
-      <button className='action' onClick={() => forceLight("Red")}>Set Green</button>
+      <ForceLightButton caption="Set Red" onClick={() => forceLight("Red")} />
+      <ForceLightButton caption="Set Yellow" onClick={() => forceLight("Yellow")} />
+      <ForceLightButton caption="Set Green" onClick={() => forceLight("Red")} />
       <hr />
       <div>
         <h3>Light Stats</h3>
